@@ -1,0 +1,29 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+        <%= form_with model: @stock, local: true do |form| %>
+          <form>
+          <div class="form-group">
+          <label form=imege>画像</label>
+          <%= form.file_field :image, id:"stock-image" %>
+          </div>
+          <div class="form-group">
+          <label form=item_name>商品名</label>
+          <%= form.text_field :item_name, class: "form-control", placeholder: "ItemName" %>
+          </div>
+          <div class="form-group">
+          <label form=info>商品説明</label>
+          <%= form.text_area :info, class: "form-control", rows: "3", placeholder: "info Url" %>
+          </div>
+          <div class="form-group">
+          <label form=stock_quantity>在庫数</label>
+          <%= form.text_field :stock_quantity, class: "form-control", placeholder: "StockQuantity Url" %>
+          </div>
+        
+          <%= form.submit "登録", class:"btn btn-primary" %>
+        
+          </form>
+        <%end%>
+  </div>
+</div>
+
