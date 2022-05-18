@@ -1,31 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>Tikstock</title>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tikstock
+    </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-      <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">TikStock</a></h1>
-        <% if user_signed_in? %>
-          <div class="user_nav grid-6">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%= link_to "投稿する", new_tweet_path, class: "post" %>
+<body>
+  <header>
+    <div class="collapse bg-dark" id="Navbar">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">ユーザーメニュー</h4>
+            <p class="text-muted">ログインユーザーは投稿、在庫数の変更が可能です。</p>
           </div>
-        <% else %>
-          <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">要望</h4>
+            <ul class="list-unstyled">
+               <% if user_signed_in? %>
+              <div class="user_nav grid-6">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </div>
+              <% else %>
+                <div class="grid-6">
+                  <%= link_to "ログイン", new_user_session_path, class: "post" %>
+                  <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+                </div>
+              <% end %>
+            </ul>
           </div>
-        <% end %>
+        </div>
       </div>
-    </header>
-    <%= yield %>
-  </body>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>こんにちはさん</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1>TikStock</h1>
+        <p class="lead text-muted">あらゆる在庫品を手軽にチームで！PC,スマホからどこからでもお手軽管理！それがTikStock！</p>
+        <p>
+          <a href="#" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"></path>
+            </svg>
+                在庫数管理
+          </a>
+          
+          
+          <%= link_to "在庫商品の登録", new_stock_path, class: "btn btn-primary my-2" %>
+
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="テキスト入力欄">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-primary __web-inspector-hide-shortcut__">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                </svg>
+              </button>
+              </span>
+            </div>
+          
+          
+
+        </p>
+      </div>
+
+        <body>
+        <%= yield %>
+        </body>
+    
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">トップに戻る</a>
+      </p>
+      <p>このアルバムの実例は &copy; Bootstrap だが、ダウンロードして自分でカスタマイズすること！</p>
+      <p>Bootstrapが初めてなら、<a href="http://getbootstrap.com/" target="_blank">ホームページ</a>にアクセスするか、<a href="../getting-started/introduction">スタートガイド</a>を読むように。</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js" integrity="sha384-Qg00WFl9r0Xr6rUqNLv1ffTSSKEFFCDCKVyHZ+sVt8KuvG99nWw5RNvbhuKgif9z" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  //JavaScriptプラグインの設定など
+</body>
+
 </html>
