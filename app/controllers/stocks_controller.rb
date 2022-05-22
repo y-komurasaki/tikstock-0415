@@ -3,7 +3,7 @@ class StocksController < ApplicationController
  before_action :set_stock, only: [:show, :edit, :update, :destroy]
  
   def index
-    @stocks = Stock.all
+    @stocks = Stock.includes(:user).order("created_at DESC")
   end
 
   def show
@@ -19,6 +19,20 @@ class StocksController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def edit
+    unless user_signed_in? 
+      redirect_to root_path
+    end
+  end
+
+  def update
+    if @stock.update(stock_params)
+      redirect_to stock_path(@stock.id)
+    else
+      render :edit
     end
   end
 

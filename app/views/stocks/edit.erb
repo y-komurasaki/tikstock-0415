@@ -1,0 +1,58 @@
+<div class="contents row">
+  <div class="container">
+   <% if user_signed_in? && current_user.id == @stock.user_id %>
+        <h3>編集する</h3>
+            <%= form_with model: @stock, local: true do |form| %>
+              <%= image_tag @stock.image, class:"bd-placeholder-img card-img-top", width:"50%", height:"50%", preserveAspectRatio:"xMidYMid slice" %> 
+              <form>
+              <div class="form-group">
+              <label form=imege>画像</label>
+              <%= form.file_field :image, id:"stock-image" %>
+              </div>
+              <div class="form-group">
+              <label form=item_name>商品名</label>
+              <%= form.text_field :item_name, class: "form-control", placeholder: "ItemName" %>
+              </div>
+              <div class="form-group">
+              <label form=info>商品説明</label>
+              <%= form.text_area :info, class: "form-control", rows: "3", placeholder: "info Url" %>
+              </div>
+              <div class="form-group">
+              <label form=stock_quantity>在庫数</label>
+              <%= form.text_field :stock_quantity, class: "form-control", placeholder: "StockQuantity Url" %>
+              </div>
+            
+              <%= form.submit "登録", class:"btn btn-primary" %>
+            
+              </form>
+            <%end%>
+    
+   <% elsif user_signed_in? && current_user.id != @stock.user_id %> 
+                <%= form_with model: @stock, local: true do |form| %>
+          
+           <form>
+              <div class="container">
+              <div class="row">
+  
+              <div class="col-md-7 d-block mx-auto">
+                <div class="card mb-7 shadow-sm">                         
+                    <p class="card-text"><div>商品名</div> <%= @stock.item_name %></p>
+                    <%= image_tag @stock.image, class:"bd-placeholder-img card-img-top", width:"50%", height:"50%", preserveAspectRatio:"xMidYMid slice" %>  
+                    <p class="card-text"><div class='stock-info'>商品情報</div><%= @stock.info %></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                   </div>   
+                </div>                        
+             </div>  
+           </div>
+          </div>
+          <div class="form-group">
+          <label form=stock_quantity>在庫数</label>
+          <%= form.text_field :stock_quantity, class: "form-control", method: :patch %>
+          </div>
+          <%= form.submit "登録", class:"btn btn-primary" %>
+          </form>
+          <%end%>
+   <%end%>       
+
+  </div>
+</div>
