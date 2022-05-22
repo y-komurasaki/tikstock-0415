@@ -36,6 +36,10 @@ class StocksController < ApplicationController
     end
   end
 
+  def destroy
+    @stock.destroy 
+  end
+
   private
 
   def stock_params
