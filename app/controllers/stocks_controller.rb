@@ -1,6 +1,7 @@
 class StocksController < ApplicationController
- before_action :authenticate_user!, except: [:index, :show]
+ before_action :authenticate_user!, except: [:index, :show, :search]
  before_action :set_stock, only: [:show, :edit, :update, :destroy]
+ before_action :move_to_index, except: [:index, :show, :search]
  
   def index
     @stocks = Stock.includes(:user).order("created_at DESC")
@@ -40,6 +41,10 @@ class StocksController < ApplicationController
     @stock.destroy 
   end
 
+  def search
+    @stocks = Stock.search(params[:keyword])
+  end
+
   private
 
   def stock_params
@@ -48,6 +53,12 @@ class StocksController < ApplicationController
 
   def set_stock
     @stock = Stock.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 
