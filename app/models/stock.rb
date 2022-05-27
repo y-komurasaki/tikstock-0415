@@ -5,6 +5,7 @@ class Stock < ApplicationRecord
   def self.search(search)
     if search != ""
       Stock.where('item_name LIKE(?)', "%#{search}%")
+      Stock.where('info LIKE(?)', "%#{search}%")
     else
       Stock.all
     end
