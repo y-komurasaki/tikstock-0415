@@ -23,7 +23,7 @@
                       <div class="btn-group">
                         <p>
                         <%= link_to '見る', stock_path(stock.id), class:"btn bg-light btn-outline-secondary", method: :"get" %>
-                        <button type="button" class="btn bg-light btn-outline-secondary">編集</button>
+                        <%= link_to '在庫', quantity_stock_path(stock.id), class:"btn bg-light btn-outline-secondary", method: :"get" %>
                         </p>
                       </div>
                         <p class="stock-quantity">
