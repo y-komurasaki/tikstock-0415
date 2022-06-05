@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
  before_action :authenticate_user!, except: [:index, :show, :search]
- before_action :set_stock, only: [:show, :edit, :update, :destroy]
+ before_action :set_stock, only: [:show, :edit, :update, :destroy, :quantity, :quantity_update]
  before_action :move_to_index, except: [:index, :show, :search]
  
   def index
@@ -17,7 +17,7 @@ class StocksController < ApplicationController
   def create
     @stock = Stock.new(stock_params)
     if @stock.save
-      redirect_to root_path
+      redirect_to stocks_path
     else
       render :new
     end
@@ -43,6 +43,13 @@ class StocksController < ApplicationController
 
   def search
     @stocks = Stock.search(params[:keyword])
+  end
+
+  def quantity
+  end
+
+  def quantity_update
+     @stock.update_column :status, 'stock_quantity'
   end
 
   private
