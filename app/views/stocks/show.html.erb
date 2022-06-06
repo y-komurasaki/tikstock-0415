@@ -20,14 +20,10 @@
                           </div>
                         </div>
                     </p>
-                     <% if user_signed_in? && current_user.id == @stock.user_id %>
+                     <% if user_signed_in? && current_user.id %>
                         <div class="btn">
                           <%= link_to '編集', edit_stock_path(@stock.id), class:"btn bg-light btn-outline-secondary", method: :"get" %>
-                          <%= link_to '削除', stock_path(@stock.id), method: :'delete', class:"btn bg-light btn-outline-secondary" %>
-                        </div>
-                     <% elsif user_signed_in? && current_user.id != @stock.user_id %>
-                        <div class="btn">
-                          <%= link_to '編集', edit_stock_path(@stock.id), class:"btn bg-light btn-outline-secondary", method: :"get" %>
+                          <%= link_to '削除', stock_path(@stock.id), class:"btn bg-light btn-outline-secondary", method: :'delete' %>
                         </div>
                      <% end %>
                    </div>   
