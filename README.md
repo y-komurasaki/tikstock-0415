@@ -5,8 +5,8 @@ Tik Stock
 # URL※
 
 # テスト用アカウント
-Basic認証のIDとパスワード |  export BASIC_AUTH_USER='admin'
-export BASIC_AUTH_PASSWORD='2222'
+Basic認証のIDとパスワード |  export BASIC_AUTH_USER=''
+export _AUTH_PASSWORD='2222'
 
 投稿者用のメールアドレスとパスワード   | メールアドレス：
 　　　　　　　　　　　　　　　　　　　　  パスワード：
