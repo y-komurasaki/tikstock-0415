@@ -43,8 +43,9 @@ export _AUTH_PASSWORD='2222'
 
 # 実装した機能についての画像やGIFおよびその説明※
 
-[![Image from Gyazo](https://i.gyazo.com/0481a27bba08fa1ff88f9c045f498818.gif)](https://gyazo.com/0481a27bba08fa1ff88f9c045f498818)
+<h2>スマホ画面</h2>
 
+[![Image from Gyazo](https://i.gyazo.com/b3468ebbb698d5d195286240543c1c3c.gif)](https://gyazo.com/b3468ebbb698d5d195286240543c1c3c)
 
 # DB 設計
 
