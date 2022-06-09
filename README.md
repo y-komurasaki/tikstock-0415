@@ -42,9 +42,6 @@ export _AUTH_PASSWORD='2222'
 <br></br>
 
 # 実装した機能についての画像やGIFおよびその説明※
-<h2>PC画面</h2>
-
-[![Image from Gyazo](https://i.gyazo.com/0481a27bba08fa1ff88f9c045f498818.gif)](https://gyazo.com/0481a27bba08fa1ff88f9c045f498818)
 
 <h2>スマホ画面</h2>
 
@@ -57,6 +54,7 @@ export _AUTH_PASSWORD='2222'
 <br></br>
 
 # 画面遷移図
+
 <br></br>
 
 # 開発環境
