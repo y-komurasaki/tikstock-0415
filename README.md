@@ -49,16 +49,16 @@ export BASIC_AUTH_PASSWORD='2222'
 
 # DB 設計
 
-![Er-1 Image 3](/image/er-1.png)
-![Er-1](Users/komurasakinoriko/tikstock-0415/public/images/er-1.png)
+![Er-1](public/images/er-1.png)
 
 <br></br>
 
 # 画面遷移図
 
-(images/page.png)
+![Page](public/images/page.png)
 
 <br></br>
+
 
 # 開発環境
 HTML・CSS・Ruby・Ruby on Rails・JavaScript・GitHub・Bootstrap
